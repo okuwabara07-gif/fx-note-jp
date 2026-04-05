@@ -1,33 +1,33 @@
+import { getAllPosts } from '@/lib/posts'
+
 export default function Home() {
+  const posts = getAllPosts().slice(0, 10)
   return (
     <main style={{fontFamily:'sans-serif',maxWidth:'900px',margin:'0 auto',padding:'2rem'}}>
-      <h1 style={{fontSize:'1.5rem',fontWeight:700,marginBottom:'1rem'}}>FX・投資情報</h1>
-      <p style={{color:'#666',marginBottom:'2rem'}}>最新のFX・投資情報をご覧ください。</p>
+      <h1 style={{fontSize:'1.5rem',fontWeight:700,marginBottom:'1rem'}}>ようこそ</h1>
+      <p style={{color:'#666',marginBottom:'2rem'}}>最新の記事をご覧ください。</p>
 
-      {/* 高報酬アフィリエイト */}
-      <div style={{margin:'2rem 0',padding:'1.5rem',background:'linear-gradient(135deg,#fff9f0,#fef3e2)',borderRadius:'16px',border:'2px solid #ffd700'}}>
-        <p style={{fontSize:'0.7rem',color:'#f59e0b',fontWeight:700,marginBottom:'0.75rem'}}>🏆 おすすめFXサービス</p>
+      <div style={{margin:'2rem 0',padding:'1.25rem',background:'linear-gradient(135deg,#faf7ff,#f5eeff)',borderRadius:'16px',border:'1.5px solid #e8d4ff'}}>
+        <p style={{fontSize:'0.75rem',color:'#9333ea',fontWeight:700,marginBottom:'12px'}}>おすすめピックアップ</p>
         <a href="https://px.a8.net/svt/ejp?a8mat=4AZR8U+D2XWAA+1WP2+6CHB7" target="_blank" rel="noopener noreferrer sponsored"
-          style={{display:'flex',alignItems:'center',gap:'12px',padding:'12px 16px',background:'white',borderRadius:'12px',textDecoration:'none',border:'1px solid #ffd700',marginBottom:'8px'}}>
-          <span style={{fontSize:'1.5rem'}}>💰</span>
+          style={{display:'flex',alignItems:'center',gap:'10px',padding:'12px 16px',background:'white',borderRadius:'12px',textDecoration:'none',border:'1px solid #f0e6ff',marginBottom:'8px'}}>
+          <div style={{width:'8px',height:'8px',borderRadius:'50%',background:'#1A56DB',flexShrink:0}}></div>
           <div>
-            <div style={{fontSize:'0.85rem',fontWeight:700,color:'#333'}}>DMM FX - 新規登録で最大40,000円</div>
-            <div style={{fontSize:'0.7rem',color:'#f59e0b'}}>業界最安水準のスプレッド・初心者サポート充実</div>
+            <div style={{fontSize:'0.8rem',fontWeight:700,color:'#333'}}>DMM FX</div>
+            <div style={{fontSize:'0.7rem',color:'#888'}}>新規登録+取引40,000円</div>
           </div>
-          <span style={{marginLeft:'auto',fontSize:'0.75rem',color:'#9333ea',fontWeight:700}}>無料登録 →</span>
+          <span style={{marginLeft:'auto',fontSize:'0.75rem',color:'#1A56DB',fontWeight:700}}>→ 詳しく見る</span>
         </a>
       </div>
 
-      {/* Amazon/楽天 */}
-      <div style={{margin:'2rem 0',padding:'1rem',background:'linear-gradient(135deg,#faf7ff,#f5eeff)',borderRadius:'16px',border:'1.5px solid #e8d4ff'}}>
-        <p style={{fontSize:'0.7rem',color:'#9333ea',fontWeight:700,marginBottom:'0.75rem'}}>おすすめアイテム</p>
-        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(140px,1fr))',gap:'0.75rem'}}>
-          <a href="https://www.amazon.co.jp/?tag=haircolorab22-22" target="_blank" rel="noopener noreferrer sponsored"
-            style={{display:'flex',alignItems:'center',gap:'8px',padding:'10px 12px',background:'white',borderRadius:'12px',textDecoration:'none',border:'1px solid #fce4ec'}}>
-            <span style={{fontSize:'1.2rem'}}>📦</span>
-            <div><div style={{fontSize:'0.75rem',fontWeight:700,color:'#333'}}>Amazonでさがす</div></div>
+      <div style={{marginBottom:'2rem'}}>
+        {posts.map((post: any) => (
+          <a key={post.slug} href={'/blog/'+post.slug}
+            style={{display:'block',padding:'1rem',marginBottom:'8px',background:'white',borderRadius:'12px',border:'1px solid #e8d4ff',textDecoration:'none'}}>
+            <div style={{fontSize:'0.7rem',color:'#9333ea',marginBottom:'4px'}}>{}</div>
+            <div style={{fontSize:'0.9rem',fontWeight:700,color:'#333'}}>{}</div>
           </a>
-        </div>
+        ))}
       </div>
 
       <a href="/blog" style={{display:'inline-block',padding:'12px 24px',background:'#9333ea',color:'white',borderRadius:'12px',textDecoration:'none',fontWeight:700}}>
